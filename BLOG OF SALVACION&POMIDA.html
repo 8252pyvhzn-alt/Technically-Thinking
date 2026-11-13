@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truthfully Thinking | Student Blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#ffd9e8; --pink-soft:#fff0f6; --pink-deep:#e88bb1;
+  --yellow:#fff3c4; --yellow-soft:#fffbe8; --yellow-deep:#e0b34a;
+  --purple:#e8dcff; --purple-soft:#f6f1ff; --purple-deep:#8a6fc9;
+  --ink:#4a3b52; --ink-soft:#6d5d78; --white:#fffdfb;
+  --shadow:0 10px 25px rgba(138,111,201,.13);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Quicksand',sans-serif;background:linear-gradient(135deg,var(--pink-soft) 0%,var(--yellow-soft) 45%,var(--purple-soft) 100%);color:var(--ink);line-height:1.75}
+h1,h2,h3,h4{font-family:'Lora',serif;color:#4b3357;line-height:1.25;margin:0 0 .5em}
+p{margin:0 0 1.1em}
+a{color:var(--purple-deep);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:min(1100px,92%);margin:auto}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,253,251,.9);backdrop-filter:blur(8px);border-bottom:2px solid var(--pink)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 0}
+.brand{display:flex;align-items:center;gap:.65rem;font-family:'Lora',serif;font-weight:600;font-size:1.25rem;color:#4b3357}
+.brand-dot{width:38px;height:38px;border-radius:50%;background:conic-gradient(from 20deg,var(--pink),var(--yellow),var(--purple),var(--pink));box-shadow:var(--shadow)}
+.nav-links{display:flex;gap:.35rem;flex-wrap:wrap}
+.nav-links a{padding:.45rem .85rem;border-radius:999px;font-weight:600;color:var(--ink-soft)}
+.nav-links a:hover{background:var(--pink);color:#5c3a4d;text-decoration:none}
+.hero{padding:4.5rem 0 3.5rem;text-align:center}
+.eyebrow{display:inline-block;background:var(--yellow);color:#7a5d18;font-weight:700;padding:.35rem 1rem;border-radius:999px;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem}
+.hero h1{font-size:clamp(2.2rem,5vw,3.6rem);margin:.8rem 0}
+.hero p{max-width:680px;margin:0 auto 1.5rem;color:var(--ink-soft)}
+.hero-badges{display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap}
+.badge{background:var(--white);border:2px solid var(--purple);border-radius:999px;padding:.4rem 1rem;font-weight:700;font-size:.85rem}
+.badge.pink{border-color:var(--pink-deep);color:#a04d70}
+.badge.yellow{border-color:var(--yellow-deep);color:#8a6a1d}
+.badge.purple{border-color:var(--purple-deep);color:#6a4fa8}
+.section{padding:3.2rem 0}
+.section-title{display:flex;align-items:center;gap:.8rem;margin-bottom:1.6rem}
+.section-title h2{margin:0;font-size:clamp(1.6rem,3vw,2.2rem)}
+.section-title span{flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--pink),var(--yellow),var(--purple))}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.3rem}
+.card{background:var(--white);border-radius:22px;padding:1.6rem;box-shadow:var(--shadow);border:2px solid transparent;transition:.2s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-4px);border-color:var(--purple)}
+.card .tag{align-self:flex-start;font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.3rem .7rem;border-radius:999px;margin-bottom:.8rem}
+.tag.pink{background:var(--pink);color:#93415f}
+.tag.yellow{background:var(--yellow);color:#7c5f16}
+.tag.purple{background:var(--purple);color:#644a9e}
+.card h3{font-size:1.25rem}
+.card p{color:var(--ink-soft);flex:1}
+.read{font-weight:700;color:var(--purple-deep)}
+.article{background:var(--white);border-radius:26px;padding:clamp(1.4rem,4vw,3rem);box-shadow:var(--shadow);margin-bottom:2rem;border-top:8px solid var(--purple)}
+.article.pink{border-top-color:var(--pink-deep)}
+.article.yellow{border-top-color:var(--yellow-deep)}
+.article h2{font-size:clamp(1.7rem,3.5vw,2.4rem)}
+.byline{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;color:var(--ink-soft);font-size:.9rem;margin-bottom:1.5rem}
+.chip{background:var(--purple-soft);border:1.5px solid var(--purple);padding:.25rem .8rem;border-radius:999px;font-weight:600}
+.quote{background:linear-gradient(120deg,var(--pink),var(--yellow),var(--purple));border-radius:18px;padding:1.2rem 1.4rem;font-family:'Lora',serif;font-style:italic;font-size:1.08rem;color:#4b3357;margin:1.5rem 0}
+.refs{background:var(--yellow-soft);border-left:5px solid var(--yellow-deep);border-radius:12px;padding:1rem 1.2rem;font-size:.9rem;color:var(--ink-soft)}
+.refs strong{color:#6a511a}
+.artwork-figure{margin:1.2rem 0 1.5rem;background:var(--yellow-soft);border:2px solid var(--purple);border-radius:18px;padding:1rem;text-align:center}
+.artwork-figure img{display:block;width:100%;max-height:520px;object-fit:contain;border-radius:12px;background:#fff;margin:0 auto .7rem}
+.artwork-figure figcaption{font-size:.9rem;color:var(--ink-soft)}
+.article-nav{display:flex;justify-content:space-between;gap:.8rem;flex-wrap:wrap;margin-top:1.6rem;padding-top:1rem;border-top:1px solid var(--purple)}
+.heading-link{color:inherit;text-decoration:none}
+.heading-link:hover{color:var(--purple-deep);text-decoration:underline}
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem;align-items:start}
+@media(max-width:760px){.split{grid-template-columns:1fr}.nav{flex-direction:column}.nav-links{justify-content:center}}
+.note{background:var(--pink-soft);border:2px dashed var(--pink-deep);border-radius:18px;padding:1.1rem 1.3rem}
+footer{background:#4b3357;color:#f3e9ff;padding:2.5rem 0;text-align:center}
+footer a{color:var(--yellow)}
+.toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem;margin-top:1.4rem}
+.toc a{background:var(--white);border:2px solid var(--pink);border-radius:16px;padding:.85rem 1rem;font-weight:700;color:#5c3a4d;display:block}
+.toc a:nth-child(2){border-color:var(--yellow-deep)}
+.toc a:nth-child(3){border-color:var(--purple-deep)}
+.toc a:nth-child(4){border-color:var(--pink-deep)}
+.toc a:nth-child(5){border-color:var(--yellow-deep)}
+.toc a:nth-child(6){border-color:var(--purple-deep)}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <div class="brand"><span class="brand-dot"></span> Truthfully Thinking</div>
+    <nav class="nav-links">
+      <a href="#home">Home</a><a href="#posts">Posts</a><a href="#blog1">Blog 1</a><a href="#blog2">Blog 2</a><a href="#blog3">Blog 3</a><a href="#blog4">Blog 4</a><a href="#about">About Us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container">
+    <span class="eyebrow">The Bloggers • Final Output</span>
+    <h1>Truthfully Thinking</h1>
+    <p>A student blog about truth, opinion, evidence, freedom, art, and the choices we make when deciding what to believe.</p>
+    <div class="hero-badges"><span class="badge pink">Think</span><span class="badge yellow">Check</span><span class="badge purple">Reflect</span></div>
+    <div class="toc">
+      <a href="#blog1">Blog 1 • How Do We Know Truth?</a>
+      <a href="#blog2">Blog 2 • Does Nature Exist Only for Humans?</a>
+      <a href="#blog3">Blog 3 • Freedom and Responsibility</a>
+      <a href="#blog4">Blog 4 • Art as Expression</a>
+      <a href="#blog5">Additional Post • Truth and Opinion</a>
+      <a href="#blog6">Additional Post • Is Truth Always Superior</a>
+      <a href="#blog7">Additional Post • A World Without Truth</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="posts">
+  <div class="container">
+    <div class="section-title"><h2>Our Blog Posts</h2><span></span></div>
+    <div class="cards">
+      <article class="card"><span class="tag pink">Post 01</span><h3>How Do We Know Truth?</h3><p>Truth is not simply whatever sounds convincing. We approach it through evidence, reasoning, experience, and openness to correction.</p><a class="read" href="#blog1">Read post →</a></article>
+      <article class="card"><span class="tag yellow">Post 02</span><h3>Does Nature Exist Only for Humans?</h3><p>Nature has value beyond its usefulness to people. Recognizing this helps us treat the environment with care and responsibility.</p><a class="read" href="#blog2">Read post →</a></article>
+      <article class="card"><span class="tag purple">Post 03</span><h3>Freedom and Responsibility</h3><p>Freedom gives us choices, while responsibility helps us consider how those choices affect others.</p><a class="read" href="#blog3">Read post →</a></article>
+      <article class="card"><span class="tag pink">Post 04</span><h3>Art as Expression: Being for the Other</h3><p>Two artworks invite us to look beyond ourselves and recognize the dignity and experiences of others.</p><a class="read" href="#blog4">Read post →</a></article>
+      <article class="card"><span class="tag yellow">Post 05</span><h3>How Is Truth Different From Opinion?</h3><p>Opinions can be meaningful, but they are not automatically facts. The important difference is whether a claim can be supported and checked.</p><a class="read" href="#blog5">Read post →</a></article>
+      <article class="card"><span class="tag purple">Additional</span><h3>Is Truth Always Superior?</h3><p>Truth matters because it helps us understand reality, but a good life also requires wisdom, empathy, and humility.</p><a class="read" href="#blog6">Read post →</a></article>
+    <article class="card"><span class="tag purple">Additional</span><h3>A World Without Truth</h3><p>Without shared standards for truth, communication, science, justice, and trust would become difficult.</p><a class="read" href="#blog7">Read post →</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="blog1"><div class="container">
+<article class="article pink">
+<span class="eyebrow">Blog Post 1</span>
+<h2><a class="heading-link" href="#blog1">How Do We Know Truth?</a></h2>
+<div class="byline"><span class="chip">By Chelsea Thea E. Salvacion</span><span class="chip">Samantha Anne Y. Pomida</span><span class="chip">Grade 12 – Hestia</span></div>
+<p>Knowing the truth is one of the most difficult parts of being human because we do not always see reality clearly. We have limited information, personal biases, emotions, and experiences that can affect our judgment. For us, knowing truth begins with asking a simple question: <strong>What evidence supports this claim?</strong></p>
+<p>Evidence can come from observation, reliable records, repeated testing, logical reasoning, and trustworthy testimony. For example, if someone tells us that it will rain tomorrow, we should not treat the statement as a fact just because the person sounds confident. We can check a reliable weather forecast, observe the conditions, and compare information from dependable sources. The more independently supported evidence a claim has, the more reasonable it is to accept.</p>
+<div class="quote">Truth-seeking requires both confidence to make judgments and humility to change them when better evidence appears.</div>
+<p>Philosophical discussions about knowledge also remind us that simply believing something does not guarantee that it is true. Plato’s <em>Theaetetus</em> explores the difficult relationship among knowledge, perception, and belief. In everyday life, this distinction is important: a rumor can be believed by hundreds of people and still be false.</p>
+<p>We also think truth requires intellectual honesty. If new evidence proves that we were wrong, admitting the mistake is not a weakness. It is part of learning. A person who refuses to reconsider an idea, even after strong evidence appears, may be protecting a belief instead of seeking truth.</p>
+<p>Therefore, we know truth as responsibly as possible by combining evidence, reason, careful observation, credible sources, and openness to correction. We may not achieve perfect certainty about everything, but we can improve the quality of what we believe by taking truth seriously.</p>
+<div class="refs"><strong>Reference:</strong> Plato. 1997. <em>Theaetetus</em>. Translated by M. J. Levett, revised by M. Burnyeat. Hackett Publishing Company. Original work published ca. 369 BCE.</div>
+<nav class="article-nav" aria-label="Page navigation"><a href="#home">← Home</a><a href="#about">About Us →</a></nav>
+</article>
+</div></section>
+
+<section class="section" id="blog2"><div class="container">
+<article class="article yellow">
+<span class="eyebrow">Blog Post 2</span>
+<h2><a class="heading-link" href="#blog2">Does Nature Exist Only for Humans, or Does It Have Value on Its Own?</a></h2>
+<div class="byline"><span class="chip">By Chelsea Thea E. Salvacion</span><span class="chip">Samantha Anne Y. Pomida</span><span class="chip">Grade 12 – Hestia</span></div>
+<p>At first, it may seem natural to think that nature exists mainly for human use. People use forests for wood, rivers for water, animals for food, and land for homes, farms, and roads. However, we believe that nature does not exist only for humans. Nature also has value on its own because living things and ecosystems have worth even when they are not directly useful to people.</p>
+<p>When we say that nature has value on its own, we mean that a tree, an animal, a river, or a forest should not be valued only because it can give something to humans. A tree provides shade, clean air, food, and materials, but it is also a living part of an ecosystem. Animals have their own lives, needs, and roles in nature. Rivers, oceans, mountains, and forests support many forms of life, not only human life.</p>
+<div class="quote">Nature is not merely a resource waiting to be used; it is a community of living and nonliving things that deserves respect and care.</div>
+<p>This idea is important because humans often harm nature when we think only about our own convenience. Cutting down too many trees, polluting rivers, overfishing, and destroying habitats may bring short-term benefits, but they can also cause long-term damage. When forests disappear, animals lose their homes. When rivers become polluted, fish and other living things suffer. These effects eventually return to people as well, through floods, loss of clean water, food shortages, and climate problems.</p>
+<p>We are not saying that humans should never use nature. People need food, shelter, medicine, and energy to survive. The important question is whether we use nature responsibly. Responsible use means taking only what is needed, avoiding waste, protecting habitats, and thinking about the effects of our actions on future generations.</p>
+<p>For example, instead of cutting down an entire forest without planning, people can practice replanting trees and protecting areas where wildlife lives. Instead of throwing plastic into rivers or oceans, we can reduce waste, recycle, and dispose of trash properly. These actions show that we recognize nature’s value beyond what it can provide for us.</p>
+<p>Nature also has value because it helps people feel peace, wonder, and connection. Watching a sunset, hearing birds, walking under trees, or seeing the ocean can remind us that we are part of something larger than ourselves. These experiences are difficult to measure, but they show that nature is meaningful in ways beyond money or usefulness.</p>
+<p>In conclusion, nature does not exist only for humans. While people depend on nature for survival, nature has its own importance because it supports life, maintains balance, and deserves respect. We believe that caring for the environment is not only about protecting human interests; it is also about recognizing that other living things and natural places have value in themselves.</p>
+<div class="refs"><strong>Reference:</strong> Leopold, A. 1949. <em>A Sand County Almanac</em>. Oxford University Press.</div>
+<nav class="article-nav" aria-label="Page navigation"><a href="#home">← Home</a><a href="#about">About Us →</a></nav>
+</article>
+</div></section>
+
+<section class="section" id="blog3"><div class="container">
+<article class="article purple">
+<span class="eyebrow">Blog Post 3</span>
+<h2><a class="heading-link" href="#blog3">Freedom and Responsibility</a></h2>
+<h3>If You Can Do Whatever You Want, but Your Choices Harm Others, Are You Truly Free?</h3>
+<div class="byline"><span class="chip">By Chelsea Thea E. Salvacion</span><span class="chip">Samantha Anne Y. Pomida</span><span class="chip">Grade 12 – Hestia</span></div>
+<p>Freedom gives us choices, but responsibility helps guide how we use them. Freedom is commonly understood as the ability to make choices without being controlled by someone else. We value the opportunity to express ourselves, follow our goals, and decide what kind of person we want to become.</p>
+<p>However, freedom becomes more complicated when our decisions affect other people. If we can do whatever we want but our actions harm others, are we truly free? We believe that freedom must be accompanied by responsibility. Having the power to choose does not automatically make every choice right. Other people also have rights, dignity, and the freedom to make their own decisions.</p>
+<p>Freedom includes the ability to choose, but wise freedom also involves thinking about the possible consequences of our decisions. A choice may benefit us in the moment while creating unfairness or difficulty for someone else. Thinking carefully before acting helps us recognize those effects.</p>
+<p>We can connect this idea to our classroom debate about cheating during Physics class, especially when many students were doing the same thing. The fact that a behavior is common does not automatically make it fair or acceptable. A student may feel free to take part, but cheating can disadvantage classmates who complete their work honestly and can weaken the purpose of learning.</p>
+<p>The same principle applies to school policies. When students raised concerns about having to enter campus in their regular uniform and then change into PE attire, they were questioning the practical effects of a rule. Many students commute and found carrying two sets of clothing inconvenient. Responsible decision-making should consider students’ circumstances, while disagreements should be expressed respectfully and constructively.</p>
+<div class="note"><strong>Our reflection:</strong> Being free does not mean being free from consequences. It means having the ability and judgment to make choices while respecting the freedom and well-being of others. Ultimately, freedom involves both choice and wisdom.</div>
+<nav class="article-nav" aria-label="Page navigation"><a href="#home">← Home</a><a href="#about">About Us →</a></nav>
+</article>
+</div></section>
+
+<section class="section" id="blog4"><div class="container">
+<article class="article pink">
+<span class="eyebrow">Blog Post 4</span>
+<h2><a class="heading-link" href="#blog4">Art as Expression: Being for the Other</a></h2>
+<h3>Seeing Beyond Ourselves Through Art</h3>
+<div class="byline"><span class="chip">By Chelsea Thea E. Salvacion</span><span class="chip">Samantha Anne Y. Pomida</span><span class="chip">Grade 12 – Hestia</span></div>
+<p>Art is a powerful form of expression. Through images, colors, gestures, and composition, artists can communicate experiences and ideas that may be difficult to explain in words. For this activity, we consider the philosophical idea of <em>being for the Other</em>: recognizing another person’s humanity and responding with empathy, care, and responsibility.</p>
+
+<figure class="artwork-figure">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Vincent_van_Gogh_-_The_Good_Samaritan%2C_1890_-_Google_Art_Project.jpg"
+       alt="The Good Samaritan, an oil painting by Vincent van Gogh after Eugène Delacroix, showing a man helping an injured traveler."
+       loading="lazy">
+  <figcaption><em>The Good Samaritan</em> (1890), Vincent van Gogh, after Eugène Delacroix. Public-domain image via Wikimedia Commons.</figcaption>
+</figure>
+<p><strong>Artwork 1: <em>The Good Samaritan</em> by Vincent van Gogh, after Eugène Delacroix (1890).</strong> This painting presents a man helping an injured traveler. Its central action is an act of care toward someone who is vulnerable. The helper does not focus only on his own journey; he pauses to respond to another person’s need. The scene represents being for the Other because it emphasizes compassion expressed through action.</p>
+
+<figure class="artwork-figure">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jean-Fran%C3%A7ois_Millet_-_Gleaners_-_Google_Art_Project_2.jpg"
+       alt="The Gleaners, a painting by Jean-François Millet showing three women gathering leftover grain after the harvest."
+       loading="lazy">
+  <figcaption><em>The Gleaners</em> (1857), Jean-François Millet. Public-domain image via Wikimedia Commons.</figcaption>
+</figure>
+<p><strong>Artwork 2: <em>The Gleaners</em> by Jean-François Millet (1857).</strong> Millet’s painting depicts three women gathering leftover grain after the harvest. Their work draws attention to labor, poverty, and social differences. By placing these workers at the center of the composition, the artist invites viewers to notice people whose efforts and struggles might otherwise be overlooked.</p>
+<p>Both artworks direct our attention away from ourselves. <em>The Good Samaritan</em> emphasizes direct help for a person in need, while <em>The Gleaners</em> encourages us to notice the lives and labor of people who may be overlooked. Although their subjects are different, both invite empathy and a more thoughtful awareness of others.</p>
+<p>For us, being for the Other does not mean ignoring our own needs or agreeing with everyone. It means recognizing that every person has dignity and that our actions can affect others. Art helps make this idea visible by asking us to pause, observe, and imagine experiences beyond our own.</p>
+<nav class="article-nav" aria-label="Page navigation"><a href="#home">← Home</a><a href="#about">About Us →</a></nav>
+</article>
+</div></section>
+
+<section class="section" id="blog5"><div class="container">
+<article class="article purple">
+<span class="eyebrow">Additional Post 1</span>
+<h2><a class="heading-link" href="#blog5">How Is Truth Different From Opinion?</a></h2>
+<div class="byline"><span class="chip">By Chelsea Thea E. Salvacion</span><span class="chip">Samantha Anne Y. Pomida</span><span class="chip">Grade 12 – Hestia</span></div>
+<p>Truth and opinion can sound similar because both can be expressed as statements. The important difference is that truth is concerned with whether a claim accurately describes reality, while an opinion expresses a person’s judgment, preference, interpretation, or belief.</p>
+<p>Consider the statements, “Water freezes at 0°C under standard atmospheric pressure” and “Chocolate ice cream is the best flavor.” The first is a factual claim that can be tested under specified conditions. The second is a personal preference. We can disagree about the second statement without either person being factually wrong.</p>
+<p>However, opinions are not always completely disconnected from evidence. Someone might say, “I think this school policy is effective because attendance improved after it was introduced.” The conclusion is still an opinion, but it can be supported or challenged by evidence. This is why good discussion should distinguish between what we feel and what the evidence shows.</p>
+<p>Social media makes this distinction especially important. A post can have thousands of likes and still contain inaccurate information. Popularity tells us what many people think; it does not automatically establish what is true. Likewise, confidence, repetition, or a person’s status does not turn an unsupported claim into a fact.</p>
+<p>In our view, respecting opinions does not mean treating every opinion as equally accurate. People deserve respect even when their claims are mistaken. We can listen, ask for reasons, check evidence, and disagree without turning the conversation into a personal attack.</p>
+<p>Truth and opinion can therefore coexist, but they serve different purposes. Opinions help us express values and preferences, while truth gives us a standard for evaluating claims about reality. Learning to tell the difference makes our conversations more thoughtful and responsible.</p>
+<div class="refs"><strong>Reference:</strong> Russell, B. 1912. <em>The Problems of Philosophy</em>. Williams and Norgate.</div>
+<nav class="article-nav" aria-label="Page navigation"><a href="#home">← Home</a><a href="#about">About Us →</a></nav>
+</article>
+</div></section>
+
+<section class="section" id="blog6"><div class="container">
+<article class="article pink">
+<span class="eyebrow">Additional Post 2</span>
+<h2><a class="heading-link" href="#blog6">Is Truth Always Superior to an Opinion?</a></h2>
+<div class="byline"><span class="chip">By Chelsea Thea E. Salvacion</span><span class="chip">Samantha Anne Y. Pomida</span><span class="chip">Grade 12 – Hestia</span></div>
+<p>At first, it seems obvious that truth should always be superior to opinion. If we are trying to understand reality, a well-supported truth is more dependable than an unsupported belief. Yet the question becomes more interesting when we consider what people mean by “superior.”</p>
+<p>When a question has an objective answer, truth should guide us. For example, if a bridge has a serious structural problem, an engineer’s evidence-based assessment should matter more than someone’s personal opinion that the bridge looks safe. In situations involving health, safety, science, or important decisions, replacing evidence with preference can have serious consequences.</p>
+<p>But many human questions involve values and personal experiences. People can reasonably disagree about which hobby is most enjoyable, which music is most moving, or which school activity is most meaningful. These judgments do not always have one measurable answer. In such cases, an opinion can be appropriate even though it is not an objective fact.</p>
+<p>Truth can also be communicated poorly. A person may know something true but present it arrogantly or without considering another person’s perspective. Good thinking therefore needs more than factual accuracy. It also needs humility, empathy, and judgment. Being correct does not give someone permission to disrespect others.</p>
+<p>We would say truth is superior to opinion when the two are competing as explanations of reality. However, truth does not make every personal preference meaningless. A mature thinker knows the difference between facts that should be checked and values that people may reasonably debate.</p>
+<div class="refs"><strong>Reference:</strong> James, W. 1897. “The Will to Believe.” <em>The New World</em> 5: 327–347.</div>
+<nav class="article-nav" aria-label="Page navigation"><a href="#home">← Home</a><a href="#about">About Us →</a></nav>
+</article>
+</div></section>
+
+<section class="section" id="blog7"><div class="container">
+<article class="article yellow">
+<span class="eyebrow">Additional Post 3</span>
+<h2><a class="heading-link" href="#blog7">What Would the World Be Like If There Were No Truth, Only Opinion?</a></h2>
+<div class="byline"><span class="chip">By Chelsea Thea E. Salvacion</span><span class="chip">Samantha Anne Y. Pomida</span><span class="chip">Grade 12 – Hestia</span></div>
+<p>Imagine waking up in a world where there is no truth, only opinion. People could say that a historical event happened or did not happen, that a scientific experiment succeeded or failed, or that a promise was kept or broken—and every statement would be treated as equally valid.</p>
+<p>At first, this might sound like complete freedom. In practice, it would make everyday life extremely difficult. Communication depends on shared reality. If there were no way to distinguish accurate information from false information, it would be difficult to make reliable plans. A student could not depend on a schedule, a community could not confidently respond to an emergency, and researchers could not build new knowledge from previous discoveries.</p>
+<p>Justice would also be affected. Courts and communities need evidence to determine what happened. If every claim were automatically treated as equally true, there would be no meaningful way to investigate conflicting accounts. Decisions could become based only on power, popularity, or emotion.</p>
+<p>Science would face an even bigger problem. Scientific knowledge depends on observation, testing, evidence, criticism, and the possibility that a conclusion can be revised. If an unsupported opinion had exactly the same status as a carefully tested explanation, there would be no reason to conduct experiments or correct mistakes.</p>
+<p>Most importantly, relationships depend on trust. Friends, families, teachers, and communities need some confidence that words can refer to real events. A world with no truth would make trust fragile because we could never know whether another person’s claims had any connection to reality.</p>
+<p>This thought experiment shows why truth is not merely an academic idea. Truth helps organize knowledge, communication, justice, science, and relationships. Opinions are valuable because they allow people to express different perspectives, but a functioning society needs shared standards for deciding which claims are supported by reality.</p>
+<div class="refs"><strong>References:</strong> Russell, B. 1912. <em>The Problems of Philosophy</em>. Williams and Norgate. • Plato. 1997. <em>Theaetetus</em>. Hackett Publishing Company.</div>
+<nav class="article-nav" aria-label="Page navigation"><a href="#home">← Home</a><a href="#about">About Us →</a></nav>
+</article>
+</div></section>
+
+<section class="section" id="about"><div class="container">
+<div class="article purple">
+<span class="eyebrow">About Us</span>
+<h2>Why Truthfully Thinking?</h2>
+<div class="split">
+<div>
+<p><strong>Truthfully Thinking</strong> is a student-created blog exploring how people decide what to believe. The blog focuses on truth and opinion because these ideas appear in everyday life—from classroom discussions and social media to science, friendships, and important decisions.</p>
+<p>Our goal is not to pretend that every question has an easy answer. Instead, we want to practice asking better questions, examining evidence, recognizing different perspectives, and changing our minds when good reasons require it.</p>
+</div>
+<div class="note">
+<p><strong>Blog authors</strong><br>Chelsea Thea E. Salvacion<br>Samantha Anne Y. Pomida</p>
+<p><strong>Section</strong><br>Grade 12 – Hestia</p>
+<p><strong>Project</strong><br>Final Output: The Bloggers</p>
+</div>
+</div>
+</div>
+</div></section>
+</main>
+
+<footer>
+  <div class="container">
+    <h3>Truthfully Thinking</h3>
+    <p>Original student work. References are provided where outside ideas are used.</p>
+    <p>© 2026 Chelsea Thea E. Salvacion & Samantha Anne Y. Pomida</p>
+  </div>
+</footer>
+</body>
+</html>
